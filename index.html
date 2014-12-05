@@ -23,10 +23,10 @@
       </div>
       <nav class="site">
         <ul>
-          <li><a href="#/tweet">Tweets</a></li>
-          <li><a href="#/technique">Techniques</a></li>
-          <li><a href="#/project">Projects</a></li>
-          <li><a href="#/about-me">About me</a></li>
+          <li><a href="#!/tweet">Tweets</a></li>
+          <li><a href="#!/technique">Techniques</a></li>
+          <li><a href="#!/project">Projects</a></li>
+          <li><a href="#!/about-me">About me</a></li>
         </ul>
       </nav>
     </div>
@@ -35,26 +35,33 @@
     <header id="main-header">
       <div class="max-width">
         <hgroup>
-          <h1><a href="#/">AH-Lin</a></h1>
+          <h1><a href="#!/">AH-Lin</a></h1>
           <p>live free or die hard</p>
         </hgroup>
         <nav>
           <ul>
-            <li><a href="#/tweet">Tweets</a></li>
-            <li><a href="#/technique">Techniques</a></li>
-            <li><a href="#/project">Projects</a></li>
-            <li><a href="#/about-me">About me</a></li>
+            <li><a href="#!/tweet">Tweets</a></li>
+            <li><a href="#!/technique">Techniques</a></li>
+            <li><a href="#!/project">Projects</a></li>
+            <li><a href="#!/about-me">About me</a></li>
           </ul>
         </nav><a id="slide-menu-button" class="topcoat-icon-button--large--quiet"><span class="topcoat-icon--large topcoat-icon--menu-stack"></span></a>
       </div>
     </header>
-    <div id="content" class="max-width" ng-view>
-
+    <div id="content" class="max-width">
+      <article class="component">
+        <div ng-view></div>
+      </article>
+      <!-- UY BEGIN -->
+      <div id="uyan_frame"></div>
+      <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js"></script>
+      <!-- UY END -->
     </div>
   </div>
 </div>
 <script src="js/angular.min.js"></script>
 <script src="js/angular-route.min.js"></script>
+<script src="js/angular-disqus.min.js"></script>
 <script src="js/marked.js"></script>
 <script src="js/main.js"></script>
 <script src="js/blog.js"></script>
