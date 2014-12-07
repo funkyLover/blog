@@ -2,7 +2,7 @@ var blogServices = angular.module('Blog', ['ngRoute', 'ngDisqus']);
 
 var templateUrl =  './p/article.html';
 
-function blogRouteConfig($routeProvider, $locationProvider) {
+function blogRouteConfig($routeProvider) {
   $routeProvider.when('/tweet/:name?', {
     controller: ArticleController,
     templateUrl: templateUrl
