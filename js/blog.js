@@ -1,8 +1,8 @@
-var blogServices = angular.module('Blog', ['ngRoute']);
+var blogServices = angular.module('Blog', ['ngRoute', 'ngDisqus']);
 
 var templateUrl =  './p/article.html';
 
-function blogRouteConfig($routeProvider) {
+function blogRouteConfig($routeProvider, $locationProvider) {
   $routeProvider.when('/tweet/:name?', {
     controller: ArticleController,
     templateUrl: templateUrl
@@ -32,22 +32,25 @@ marked.setOptions({
 });
 
 blogServices.config(blogRouteConfig);
-
-function ArticleController($scope, $routeParams, $http, $sce, $location){
+window.disqus_shortname = 'ahui-blog';
+function ArticleController($scope, $routeParams, $http, $sce, $location, $disqus){
   var url = $location.url();
   var name = $routeParams.name;
+
   if(url == '/about-me') {
+    $disqus.commit('about-me');
     $http.get('./p/about-me/about-me.md').success(function(data) {
       var article = marked(data);
       $scope.article = $sce.trustAsHtml(article);
     });
   } else if(name) {
-    //get tweet
+    $disqus.commit(name);
     $http.get('./p'+url+'.md').success(function(data) {
       var article = marked(data);
       $scope.article = $sce.trustAsHtml(article);
     });
   } else {
+    $disqus.commit(url);
     $http.get('./p'+url+'/list.md').success(function(data) {
       var listMd = marked(data);
       $scope.article = $sce.trustAsHtml(listMd);
