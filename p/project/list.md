@@ -11,3 +11,7 @@
 
 ## [邑大书库管理系统](#/project/book-sale-management)
 > 邑大教材采购中心管理系统
+
+## [小游戏](#/project/canvas-games)
+> 学习canvas时做的小游戏
+
