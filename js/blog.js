@@ -1,4 +1,4 @@
-var blogServices = angular.module('Blog', ['ngRoute', 'ngDisqus']);
+var blogServices = angular.module('blog', ['ngRoute', 'ngDisqus']);
 
 var templateUrl =  './p/article.html';
 
