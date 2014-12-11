@@ -3,6 +3,7 @@ var blogServices = angular.module('blog', ['ngRoute', 'ngDisqus']);
 var templateUrl =  './p/article.html';
 
 blogServices.run(function($location) {
+  console.log('test');
   $location.replace('/#/tweet');
 });
 
