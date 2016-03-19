@@ -1,4 +1,2 @@
-blog
-====
-
-blog's layout and animation effect is copying from [topcoat demo](http://topcoat.io/topcoat/)
+# ahui's blog
+### comming soon
