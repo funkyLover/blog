@@ -1,19 +1,29 @@
 
 import VueRouter from 'vue-router'
 import Vue from 'vue'
-import Index from 'src/pages/Index'
+import Tech from 'src/pages/Tech'
+import Notes from 'src/pages/Notes'
+import Chitchat from 'src/pages/Chitchat'
 import About from 'src/pages/About'
 
 Vue.use(VueRouter)
 
 const routes = [{
   path: '/',
-  name: 'index',
-  component: Index
+  name: 'tech',
+  component: Tech
 }, {
   path: '/about',
   name: 'about',
   component: About
+}, {
+  path: '/notes',
+  name: 'notes',
+  component: Notes
+}, {
+  path: '/chitchat',
+  name: 'chitchat',
+  component: Chitchat
 }]
 
 const scrollBehavior = (to, from, savedPosition) => {

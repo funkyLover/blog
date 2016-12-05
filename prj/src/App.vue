@@ -1,32 +1,41 @@
 <template>
   <div id="app">
-    <h1>welcome to vue-spa</h1>
-    <div class="nav">
-      <router-link :to="{ name: 'index' }">index</router-link>
-      <router-link :to="{ name: 'about' }">about</router-link>
+    <page-header></page-header>
+    <div class="container">
+      <div class="columns">
+        <div class="one-fourth column">
+          <profile></profile>
+        </div>
+        <div class="three-fourth column">
+          <router-view></router-view>
+        </div>
+      </div>
     </div>
-    <router-view></router-view>
   </div>
 </template>
 
 <script>
 import store from 'src/vuex/store'
+import PageHeader from 'src/components/Header'
+import Profile from 'src/components/Profile'
 
 export default {
   name: 'app',
-  store
+  store,
+  components: {
+    PageHeader,
+    Profile
+  }
 }
 </script>
 
-<style>
+<style lang="scss">
 @import "primer-css/index.scss";
 
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
   margin-top: 60px;
 }
 </style>

@@ -1,7 +1,6 @@
 <template>
   <div>
     <h1>about</h1>
-    <hello></hello>
     <div class="user" v-if="user">
       <img :src="user.avatar_url">
       <p>hello, i am {{ user.name }}</p>
@@ -11,7 +10,6 @@
 </template>
 
 <script>
-import Hello from 'src/components/Hello'
 import { mapActions } from 'vuex'
 import * as apis from 'src/apis/index'
 
@@ -25,9 +23,6 @@ export default {
   mounted () {
     this.setTitle('about')
     this.getUser()
-  },
-  components: {
-    Hello
   },
   methods: {
     async getUser () {
