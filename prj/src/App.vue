@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <page-header></page-header>
-    <div class="container">
+    <!--<div class="container">
       <div class="columns">
         <div class="one-fourth column">
           <profile></profile>
@@ -10,7 +10,7 @@
           <router-view></router-view>
         </div>
       </div>
-    </div>
+    </div>-->
   </div>
 </template>
 
@@ -38,4 +38,10 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   margin-top: 60px;
 }
+
+/* reset primer css */
+.container {
+  padding: 0 10px;
+}
+/* reset css end */
 </style>

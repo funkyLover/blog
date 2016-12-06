@@ -1,5 +1,5 @@
 <template>
-  <div class="header position-fixed">
+  <div class="header">
     <div class="container">
       <div class="columns">
         <div class="one-fourth column">
@@ -38,4 +38,27 @@ export default {
 <style lang="scss" scoped>
 @import '../assets/style/common.scss';
 
+.header {
+  background: $silver;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 55px;
+  border-bottom: 1px $gray solid;
+}
+
+.logo-link {
+  height: 55px;
+  display: inline-block;
+  padding: 12px 0;
+  text-decoration: none;
+  color: $black;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.logo-link img {
+  height: 100%;
+  padding-right: 5px;
+}
 </style>
