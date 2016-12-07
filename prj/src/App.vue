@@ -1,13 +1,14 @@
 <template>
   <div id="app">
     <page-header></page-header>
+    <router-view></router-view>
+
     <!--<div class="container">
       <div class="columns">
         <div class="one-fourth column">
           <profile></profile>
         </div>
         <div class="three-fourth column">
-          <router-view></router-view>
         </div>
       </div>
     </div>-->

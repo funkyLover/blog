@@ -11,7 +11,7 @@
         <div class="col-md-8 col-sm-12 col-12 column">
           <ul class="nav list-style-none">
             <li>
-              <router-link :to="{ name: 'tech' }">Tech</router-link>
+              <router-link :to="{ name: 'tech' }" exact>Tech</router-link>
             </li>
             <li>
               <router-link :to="{ name: 'notes' }">Notes</router-link>
