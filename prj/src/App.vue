@@ -42,6 +42,8 @@ export default {
 /* reset primer css */
 .container {
   padding: 0 10px;
+  width: auto;
+  max-width: 1020px;
 }
 /* reset css end */
 </style>
