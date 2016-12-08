@@ -2,13 +2,13 @@
   <div class="header">
     <div class="container">
       <div class="columns">
-        <div class="col-md-4 col-sm-12 col-12 column text-center text-md-left">
+        <div class="col-md-3 col-sm-12 col-12 column text-center text-md-left">
           <router-link :to="{ name: 'tech' }" class="logo-link">
             <img src="../assets/image/icon.png" class="icon">
             <span>in da house</span>
           </router-link>
         </div>
-        <div class="col-md-8 col-sm-12 col-12 column">
+        <div class="col-md-9 col-sm-12 col-12 column">
           <ul class="nav list-style-none">
             <li>
               <router-link :to="{ name: 'tech' }" exact>Tech</router-link>

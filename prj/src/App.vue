@@ -1,17 +1,16 @@
 <template>
   <div id="app">
     <page-header></page-header>
-    <router-view></router-view>
-
-    <!--<div class="container">
+    <div class="container">
       <div class="columns">
-        <div class="one-fourth column">
+        <div class="column hide-md hide-sm col-md-3">
           <profile></profile>
         </div>
-        <div class="three-fourth column">
+        <div class="column col-12 col-sm-12 col-md-9">
+          <router-view></router-view>
         </div>
       </div>
-    </div>-->
+    </div>
   </div>
 </template>
 
@@ -34,10 +33,16 @@ export default {
 @import "primer-css/index.scss";
 
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family:  "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  margin-top: 60px;
+  margin-top: 115px;
+}
+
+@media (min-width: 768px) {
+  #app {
+    margin-top: 60px;
+  }
 }
 
 /* reset primer css */

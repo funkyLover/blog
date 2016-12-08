@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "es6-promise-promise": "^1.0.0",
+    "octicons": "^5.0.1",
     "primer-css": "^4.4.0",
     "vue": "^2.1.0",
     "vue-resource": "^1.0.3",
