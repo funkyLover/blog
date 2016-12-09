@@ -3,9 +3,9 @@
     <img src="../assets/image/avatar.jpg" class="avatar">
     <p class="name">阿辉</p>
     <p class="bio">朴素的开始,本分的坚持,不懈的努力</p>
-    <p class="contact"><i v-html="icon.github" class="icon"></i> funkyLover</p>
-    <p class="contact"><i v-html="icon.linkedin" class="icon"></i>Joseph Lam</p>
-    <p class="contact"><i v-html="icon.mail" class="icon"></i>ahui-lin@qq.com</p>
+    <a class="contact github" href="https://github.com/funkyLover"><i v-html="icon.github" class="icon"></i> funkyLover</a>
+    <a class="contact linkedin" href="https://www.linkedin.com/in/%E9%BE%99%E8%BE%89-%E6%9E%97-758307106"><i v-html="icon.linkedin" class="icon"></i>Joseph Lam</a>
+    <a class="contact mail" href="mailto:ahui-lin@qq.com"><i v-html="icon.mail" class="icon"></i>ahui-lin@qq.com</a>
   </div>
 </template>
 
@@ -44,19 +44,51 @@ export default {
 
 .profile .bio {
   color: $tint-black;
-  padding-bottom: 10px;
   border-bottom: 1px $gray solid;
+  padding-bottom: 10px;
 }
 
 .profile .contact {
-  font-size: 14px;
+  font-size: 15px;
+  display: block;
+  color: $tint-black;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.profile .contact:hover {
+  text-decoration: underline;
 }
 
 .profile .contact .icon {
-  float: left
+  float: left;
+  margin-right: 5px;
 }
 
 .profile .contact .icon svg {
-  fill: $light-black;
+  fill: $tint-black;
+  height: auto;
+  width: 20px;
+}
+
+.profile .contact.linkedin:hover {
+  color: #0176b7;
+  & .icon svg {
+    fill: #0176b7;
+  }
+}
+
+.profile .contact.github:hover {
+  color: $black;
+  & .icon svg {
+    fill: $black;
+  }
+}
+
+.profile .contact.mail:hover {
+  color: $main-color;
+  & .icon svg {
+    fill: $main-color;
+  }
 }
 </style>
