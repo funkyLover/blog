@@ -28,6 +28,14 @@ export const get = async (url, data, feedback = false) => {
   }
 }
 
-const BASE_URL = 'https://api.github.com'
+const BASE_URL = 'https://api.github.com/'
 
-export const GET_USER_URL = BASE_URL + '/users'
+export const CONTENTS = BASE_URL + '/repos/funkylover/vue-spa/contents'
+
+export const TECH_TREE_URL = BASE_URL + '/'
+
+export const CHITCHAT_TREE_URL = BASE_URL + '/'
+
+export const NOTES_TREE_URL = BASE_URL + '/'
+
+export const TECH_URL = BASE_URL + '/'

@@ -15,13 +15,11 @@
 </template>
 
 <script>
-import store from 'src/vuex/store'
 import PageHeader from 'src/components/Header'
 import Profile from 'src/components/Profile'
 
 export default {
   name: 'app',
-  store,
   components: {
     PageHeader,
     Profile

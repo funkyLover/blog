@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <h1>about</h1>
+  <div class="about">
+    <h1>About</h1>
     <div class="user" v-if="user">
       <img :src="user.avatar_url">
       <p>hello, i am {{ user.name }}</p>
