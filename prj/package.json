@@ -11,13 +11,10 @@
   },
   "dependencies": {
     "es6-promise-promise": "^1.0.0",
-    "octicons": "^5.0.1",
     "primer-css": "^4.4.0",
     "vue": "^2.1.0",
     "vue-resource": "^1.0.3",
-    "vue-router": "^2.0.1",
-    "vuex": "^2.0.0",
-    "vuex-router-sync": "^3.0.0"
+    "vue-router": "^2.0.1"
   },
   "devDependencies": {
     "autoprefixer": "^6.4.0",
