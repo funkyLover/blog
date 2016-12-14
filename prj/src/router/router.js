@@ -48,7 +48,8 @@ var router = new VueRouter({
   mode: 'history',
   scrollBehavior,
   routes,
-  linkActiveClass: 'active'
+  linkActiveClass: 'active',
+  base: '/blog/'
 })
 
 export default router
