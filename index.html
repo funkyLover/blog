@@ -1,1 +1,60 @@
-<!DOCTYPE html><html><head><meta charset=utf-8><title>ahui's blog</title><base href=/blog><link rel=stylesheet href=/static/pace/pace.css><script src=/static/pace/pace.js></script><link href=static/css/app.6f2f2957f1f5744ff905df1419a7da62.css rel=stylesheet></head><body><div id=app></div><script type=text/javascript src=static/js/manifest.654cc713e9d42073c85d.js></script><script type=text/javascript src=static/js/vendor.4d9f8c71d4a068bf114f.js></script><script type=text/javascript src=static/js/app.ef9610f609fd48a0804e.js></script></body></html>
+---
+layout: default
+---
+{% include header.html %}
+
+<div class="list">
+{% if site.posts.size == 0 %}
+  <h2>No post found</h2>
+{% else %}
+<!-- This loops through the paginated posts -->
+{% for post in paginator.posts %}
+  <div class="list-post">
+    {% if post.link %}
+    <a href="{{ post.link }}">
+    {% else %}
+    <a href="{{ post.url | prepend: site.baseurl }}">
+    {% endif %}  
+      <div class="list-post-title">
+        {{ post.title }}
+      </div>
+      {% if post.description %}
+      <div class="list-post-desc">
+        {{ post.description }}
+      </div>
+      {% endif %}
+      <div class="list-post-date">
+        <time>{{ post.date | date:"%Y-%m-%d" }}</time>
+      </div>
+    </a>
+
+
+  </div>
+{% endfor %}
+  <!-- Pagination links -->
+  <div class="list-pagination">
+    <span class="list-pagination-previous">
+      {% if paginator.previous_page %}
+        <a href="{{ paginator.previous_page_path | prepend: site.baseurl }}" class="previous">
+          <i class="fa fa-angle-left" aria-hidden="true"></i>
+          Previous
+        </a>
+      {% else %}
+
+      {% endif %}
+    </span>
+
+    <span class="list-pagination-next">
+      {% if paginator.next_page %}
+        <a href="{{ paginator.next_page_path | prepend: site.baseurl }}" class="next">
+          Next
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+        </a>
+      {% else %}
+
+      {% endif %}
+    </span>
+
+  </div>
+{% endif %}
+</div>

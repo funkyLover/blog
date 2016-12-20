@@ -1,4 +1,4 @@
 
-# ahui's blog
+# Ahui personal blog
 
-> personal blog by ahui([funkyLover](https://github.com/funkyLover))
+base on [kiko-plus jekyll theme](https://github.com/AWEEKJ/Kiko-plus)

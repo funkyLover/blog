@@ -1,0 +1,15 @@
+<header class="header">
+  <h1 class="header-title">
+    <a href="{{ site.url }}{{ site.baseurl }}">{{ site.name }}<span> in da house</span></a>
+    <p class="header-bio">尘世间一名迷途小码农</p>
+  </h1>
+  <nav class="header-nav">
+    {% for nav in site.nav %}
+    {% if nav.url contains 'http://' or nav.url contains 'https://' %}
+    <a href="{{ nav.url }}">{{ nav.name }}</a>
+    {% else %}
+    <a href="{{ nav.url | prepend: site.baseurl }}">{{ nav.name }}</a>
+    {% endif %}
+    {% endfor %}
+  </nav>
+</header>

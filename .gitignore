@@ -1,4 +1,5 @@
-.DS_Store
-node_modules/
-dist/
-npm-debug.log
+_site
+.sass-cache
+Gemfile.lock
+_drafts
+.jsbeautifyrc
