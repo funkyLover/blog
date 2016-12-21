@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "安卓手机浏览器下获取选择文件的类型"
-description: "在没有文件后缀的情况下,改如何判断文件类型"
+description: "在没有文件后缀的情况下,该如何判断文件类型"
 date: 2016-09-09
 tags: [webapp]
 comments: true
@@ -80,4 +80,5 @@ fileChange (e) {
   reader.readAsArrayBuffer(file)
 }
 ```
+
 ***至此~完美!***

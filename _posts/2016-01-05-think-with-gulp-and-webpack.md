@@ -8,13 +8,14 @@ comments: true
 share: true
 ---
 
-##你知道吗?webpack出来统一天下了!
+## 你知道吗?webpack出来统一天下了!
+
 我已经不是第一次看到这类似的话语,为数不少的人都觉得webpack是目前前端工程化完整性解决方案,打出了终于不再用纠结使用grunt或是gulp了的旗号,只要使用webpack就足够了
 
 而事实果真如此?
 
 首先看看[webpack官网](http://webpack.github.io/docs/what-is-webpack.html)给出的解析
->webpack is a module bundler.
+> webpack is a module bundler.
 
 简单来说,官方对webpack的定位是模块打包器,相比于gulp或是grunt,webpack的竞争对手应该是browserify之流
 
@@ -26,44 +27,52 @@ share: true
 
 那么问题来了
 
-##如何构建一个gulp与webpack相配合的前端工作流呢?
+## 如何构建一个gulp与webpack相配合的前端工作流呢?
 
 > 为什么是`gulp`而不`grunt`?
 > 因为我用的是gulp - -!
 
 要构建这样一个工作流,首先要理清几个问题
+
 - 什么工作应该交给gulp,什么工作应该交给webpack
 - webpack貌似支持增量更新,gulp支持增量更新吗?(这个是我之前一直很纠结的问题)
 - 如何实现livereload?
 
-###对于第一个问题
+### 对于第一个问题
+
 就如前面所说,webpack只是一个模块打包器,所以,交予webpack处理的应该已是经过各种lint检查,各种编译处理的代码
 而各种检查,各种预处理就应该交给gulp之流了
 最后压缩代码应该要交给webpack最后打包时再去执行
 
-###对于第二个问题
+### 对于第二个问题
+
 之前一直没有注意这个问题
 看看gulp的基本使用
+
 ```javascript
 gulp.src('client/templates/*.jade')
   .pipe(jade())
   .pipe(minify())
-  .pipe(gulp.dest('build/minified_templates'));  
+  .pipe(gulp.dest('build/minified_templates'));
 ```
+
 对于开发中gulp会使用`watcher`实时检查文件是否更新,检查到有更新则马上跑相应的构建任务,但是有上面的代码可以看出,gulp每次都只能通过通配符匹配大量的文件,而不能就单单获取修改过的文件,这种情况在大型项目中每次构建都会花不少时间,更别论要在构建任务之后再加一个webpack的打包任务
 
 不过所幸上网找到一个[gulp-changed](https://github.com/sindresorhus/gulp-changed)的插件,实在棒!
 
-###对于第三个问题
+### 对于第三个问题
+
 之前开发时live reload都是交给gulp的,而现在gulp的构建任务并不是在任务链的最后端,由gulp来实现显然不再合适
 
-##实践实践
+## 实践实践
+
 基于上面的思考,我做了个尝试[项目](https://github.com/funkyLover/funky-seed)
 
 做些简单的说明,上面的项目只有简单的几个构建任务
 
-###对于`js`
-```
+### 对于`js`
+
+```javascript
 gulp.task('js', function() {
   return gulp.src('src/**/*.js')
         .pipe($.changed('build'))
@@ -75,10 +84,12 @@ gulp.task('js', function() {
         .pipe(gulp.dest('build'));
 });
 ```
+
 只简单的用eslint检测一下语法而已,而注释的部分,是使用babel把es6的代码转化成es5的代码,但是这部分应该是由webpack在最后打包阶段处理,所以去掉了
 
-###对于`css`
-```
+### 对于`css`
+
+```javascript
 gulp.task('css', function() {
   return sass('src/**/*.scss')
         .pipe($.changed('build'))
@@ -87,11 +98,14 @@ gulp.task('css', function() {
         .pipe(gulp.dest('build'));
 });
 ```
-就是把scss转化成css,并替换掉css文件中的占位符(可以根据需求加上自动合并雪碧图或者postcss处理等等)
-这里要说明一下在这个示例项目中其实并没有实际编写任何css或scss,因为项目中的todo应用实际是从[redux todo](https://github.com/rackt/redux/tree/master/examples/todomvc)直接拷贝的 = =!
 
-###对于`html`
-```
+就是把scss转化成css,并替换掉css文件中的占位符(可以根据需求加上自动合并雪碧图或者postcss处理等等)
+这里要说明一下在这个示例项目中其实并没有实际编写任何css或scss,因为项目中的todo应用实际是从[redux todo](https://github.com/rackt/redux/tree/master/examples/todomvc)
+直接拷贝的 = =!
+
+### 对于`html`
+
+```javascript
 gulp.task('html', function() {
   return gulp.src('src/**/*.html')
         .pipe($.changed('build'))
@@ -99,14 +113,17 @@ gulp.task('html', function() {
         .pipe(gulp.dest('build'));
 });
 ```
+
 就没什么好说的,就是做了一下占位符替换而已
 如果是使用其他模板引擎就可以在这里进行编译
 
 `而live reload应该怎么做呢?`
 
-参考了一下[react-transform-boilerplate](https://github.com/gaearon/react-transform-boilerplate)和[redux todo](https://github.com/rackt/redux/tree/master/examples/todomvc)(其实还是直接拷贝的= =)
-```
+参考了一下[react-transform-boilerplate](https://github.com/gaearon/react-transform-boilerplate)
+和[redux todo](https://github.com/rackt/redux/tree/master/examples/todomvc)
+(其实还是直接拷贝的= =)
 
+```javascript
 gulp.task('default', ['clean', 'js', 'css', 'html', 'watch'], function() {
   var app = require('./devServer');
   var port = 3000;
@@ -119,13 +136,13 @@ gulp.task('default', ['clean', 'js', 'css', 'html', 'watch'], function() {
   });
 });
 ```
+
 就是再把所有任务跑一遍后启动实现live reload的`devServer`
 修改文件时,gulp就会从`src`->`build`进行构建,而webpack则是检测着build文件夹是否有更新来进行增量编译,同时实现live reload
 
 至此,已经把脑中想法基本实现了出来(其实并没有,bug多多的说)
 
-
-##写在最后
+## 写在最后
 
 再来说说实践过后的想法
 >webpack果真是业界杀鸡用牛刀的最佳代言人
