@@ -45,7 +45,7 @@ fileChange (e) {
 
 幸运的是,我在stackoverflow上找到了这个[问题](http://stackoverflow.com/questions/30689030/html-file-input-on-chrome-for-android-missing-extension-and-mime-type)
 
-大意就是说所有的文件都有所谓`file signatures`可以用来辨识文件类型,不过这么懒的话按上面回答的代码来改写是在太费劲了!
+大意就是说所有的文件都有所谓`file signatures`可以用来辨识文件类型,不过这么懒的我按上面回答的代码来改写是在太费劲了!
 
 然后在github上找到了这个[js库](https://github.com/sindresorhus/file-type)
 基于这个库改写了一下上面的代码

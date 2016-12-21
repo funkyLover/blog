@@ -21,9 +21,7 @@ share: true
 
 就连webpack官方也给出了[webpack with gulp](http://webpack.github.io/docs/usage-with-gulp.html)的一些说明
 
-虽然webpack的确可以代替gulp的一些功能
-但是非常明显webpack和gulp/grunt就不是`一个职能`的工具
-所以说`取代`还言过其实(之前我的一个[提问](http://segmentfault.com/q/1010000004179858))
+虽然webpack的确可以代替gulp的一些功能,但是非常明显webpack和gulp/grunt就不是`一个职能`的工具,所以说`取代`还言过其实(之前我的一个[提问](http://segmentfault.com/q/1010000004179858))
 
 那么问题来了
 
@@ -40,9 +38,7 @@ share: true
 
 ### 对于第一个问题
 
-就如前面所说,webpack只是一个模块打包器,所以,交予webpack处理的应该已是经过各种lint检查,各种编译处理的代码
-而各种检查,各种预处理就应该交给gulp之流了
-最后压缩代码应该要交给webpack最后打包时再去执行
+就如前面所说,webpack只是一个模块打包器,所以,交予webpack处理的应该已是经过各种lint检查,各种编译处理的代码,而各种检查,各种预处理就应该交给gulp之流了,最后压缩代码应该要交给webpack最后打包时再去执行
 
 ### 对于第二个问题
 
@@ -99,9 +95,7 @@ gulp.task('css', function() {
 });
 ```
 
-就是把scss转化成css,并替换掉css文件中的占位符(可以根据需求加上自动合并雪碧图或者postcss处理等等)
-这里要说明一下在这个示例项目中其实并没有实际编写任何css或scss,因为项目中的todo应用实际是从[redux todo](https://github.com/rackt/redux/tree/master/examples/todomvc)
-直接拷贝的 = =!
+就是把scss转化成css,并替换掉css文件中的占位符(可以根据需求加上自动合并雪碧图或者postcss处理等等)这里要说明一下在这个示例项目中其实并没有实际编写任何css或scss,因为项目中的todo应用实际是从[redux todo](https://github.com/rackt/redux/tree/master/examples/todomvc)直接拷贝的 = =!
 
 ### 对于`html`
 
@@ -119,9 +113,7 @@ gulp.task('html', function() {
 
 `而live reload应该怎么做呢?`
 
-参考了一下[react-transform-boilerplate](https://github.com/gaearon/react-transform-boilerplate)
-和[redux todo](https://github.com/rackt/redux/tree/master/examples/todomvc)
-(其实还是直接拷贝的= =)
+参考了一下[react-transform-boilerplate](https://github.com/gaearon/react-transform-boilerplate)和[redux todo](https://github.com/rackt/redux/tree/master/examples/todomvc)(其实还是直接拷贝的= =)
 
 ```javascript
 gulp.task('default', ['clean', 'js', 'css', 'html', 'watch'], function() {
