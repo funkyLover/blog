@@ -50,7 +50,7 @@ npm install --progress=true
 alias ni="npm install --progress=false"
 ```
 
-##### [116-01-18]去除字符串中的空格
+##### [16-01-18]去除字符串中的空格
 
 ```js
 var str = 'i am a string contain white space'
