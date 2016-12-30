@@ -2,7 +2,7 @@
 layout: post
 title: "gulp与webpack的迷思"
 description: "gulp和webpack该如何抉择,尘世间一名迷途小码农的思考"
-date: 2012-05-22
+date: 2016-01-05
 tags: [front-end]
 comments: true
 share: true

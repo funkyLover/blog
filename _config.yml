@@ -22,11 +22,11 @@ baseurl:            "" # the subpath of your site, e.g. /blog
 
 # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 timezone:           Asia/Shanghai
-permalink:          /:year-:month-:day/:title/
+permalink:          /:categories/:year-:month-:day/:title/
 
 # Pagination
-paginate:           10
-paginate_path:      /page:num/
+# paginate:           10
+# paginate_path:      /page:num/
 
 # Markdown
 markdown:           kramdown
@@ -35,11 +35,14 @@ kramdown:
 
 # Navigation
 nav:
+  - name:           "posts"
+    url:            "/"
+  - name:           "notes"
+    url:            "/notes"
   - name:           "tags"
     url:            "/tags"
   - name:           "Github"
     url:            "https://github.com/funkylover"
-
 
 
 # Sass
@@ -65,6 +68,6 @@ defaults:
 # jekyll-seo-tag, see: http://www.rubydoc.info/gems/jekyll-seo-tag/1.2.0
 gems:
   - jekyll-seo-tag
-  - jekyll-paginate
+  # - jekyll-paginate
 
 exclude:            [vendor]

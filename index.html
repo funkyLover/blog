@@ -4,11 +4,32 @@ layout: default
 {% include header.html %}
 
 <div class="list">
-{% if site.posts.size == 0 %}
+{% if site.categories.posts.size == 0 %}
   <h2>No post found</h2>
 {% else %}
+{% for post in site.categories.posts %}
+  <div class="list-post">
+    {% if post.link %}
+    <a href="{{ post.link }}">
+    {% else %}
+    <a href="{{ post.url | prepend: site.baseurl }}">
+    {% endif %}  
+      <div class="list-post-title">
+        {{ post.title }}
+      </div>
+      {% if post.description %}
+      <div class="list-post-desc">
+        <p>{{ post.description }}</p>
+      </div>
+      {% endif %}
+      <div class="list-post-date">
+        <time>{{ post.date | date:"%Y-%m-%d" }}</time>
+      </div>
+    </a>
+  </div>
+{% endfor %}
 <!-- This loops through the paginated posts -->
-{% for post in paginator.posts %}
+<!--{% for post in paginator.posts %}
   <div class="list-post">
     {% if post.link %}
     <a href="{{ post.link }}">
@@ -30,9 +51,9 @@ layout: default
 
 
   </div>
-{% endfor %}
+{% endfor %}-->
   <!-- Pagination links -->
-  <div class="list-pagination">
+  <!--<div class="list-pagination">
     <span class="list-pagination-previous">
       {% if paginator.previous_page %}
         <a href="{{ paginator.previous_page_path | prepend: site.baseurl }}" class="previous">
@@ -55,6 +76,6 @@ layout: default
       {% endif %}
     </span>
 
-  </div>
+  </div>-->
 {% endif %}
 </div>

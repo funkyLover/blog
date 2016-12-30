@@ -3,7 +3,11 @@ layout: default
 ---
 <header>
   <h1 class="header-small">
-    <a href="{{site.url}}{{site.baseurl}}">{{ site.name }}</a>
+    {% if page.categories contains "notes" %}
+      <a href="{{site.url}}{{site.baseurl}}/{{ page.categories }}">{{ site.name }}</a>
+    {% else %}
+      <a href="{{site.url}}{{site.baseurl}}">{{ site.name }}</a>
+    {% endif %}
   </h1>
 </header>
 <div class="post">
@@ -41,5 +45,4 @@ layout: default
   <section id="disqus_thread"></section>
   {% include disqus.html %}
   {% endif %}
-
 </div>
