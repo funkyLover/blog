@@ -3,7 +3,7 @@ layout: post
 title: "css揭秘读书笔记"
 description: "好记性不如烂笔头,看一遍复习一遍记一遍,可就是记不住"
 date: 2016-12-21
-tags: [css, 未完待续]
+tags: [css, 读书笔记]
 comments: true
 share: true
 ---
