@@ -34,8 +34,8 @@ function relayResponseHeaders(proxyRes, req, res) {
 var nums = [1, 2, 3, 4, 5, 6, 7, 8]
 var sum1 = eval(nums.join('+')) // note: eval is evil!
 var sum2 = nums.reduce(function (pre, next) { return pre + next }, 0)
-var min = Math.min.apply(Math, nums)
-var max = Math.max.apply(Math, nums)
+var min = Math.min.apply(Math, nums) // Math.min(...nums) ES6
+var max = Math.max.apply(Math, nums) // 同上
 ```
 
 ##### [16-01-27]npm install的进度条会影响速度
