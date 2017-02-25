@@ -34,6 +34,8 @@ git checkout master
 # aren't already in upstream/master are replayed on top of that
 # other branch:
 git rebase upstream/master
+# push the update to your repo after resolve the CONFLICT
+git push -f origin master
 ```
 
 ##### [16-5-28]避免merge commit
