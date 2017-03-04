@@ -25,9 +25,11 @@ permalink: /notes/
         {{ note.description }}
       </div>
       {% endif %}
+      {% comment %}
       <div class="list-post-date">
         <time>{{ note.date | date:"%Y-%m-%d" }}</time>
       </div>
+      {% endcomment %}
     </a>
   </div>
 {% endfor %}
