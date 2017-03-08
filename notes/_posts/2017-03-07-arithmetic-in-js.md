@@ -58,7 +58,7 @@ function find (array) {
 
 ```js
 
-function toRigth(array, n) {
+function toRight(array, n) {
   var length = array.length
   var offset = n % length
   if (n === 0 || offset === 0) return array
@@ -71,7 +71,20 @@ function toRigth(array, n) {
   */
 
   // 额外条件,不借用array方法,不增加额外的内存消耗
-  // 未完待续
+  reverse(array, 0, length - offset - 1)
+  reverse(array, length - offset,  length - 1)
+  reverse(array, 0, length - 1)
+
+  return array
+}
+
+function reverse (array, begin, end) {
+  var temp = null
+  for (;begin < end; begin++, end--) {
+    temp = array[end]
+    array[end] = array[begin]
+    array[begin] = temp
+  }
 }
 
 ```
