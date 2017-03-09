@@ -16,7 +16,7 @@ share: true
 ```js
 
 function find (array) {
-  if (!array || !Array.isArray(array) || array.length === 0) return -1;
+  if (!array || !Array.isArray(array) || array.length === 0) return -1
 
   var result = {}
   var record = []
@@ -86,5 +86,39 @@ function reverse (array, begin, end) {
     array[begin] = temp
   }
 }
+
+```
+
+##### 快速排序
+
+> 经典排序算法
+
+```js
+
+// 简单实现, 需要额外内存
+function quick (array) {
+
+  if (!array || !Array.isArray(array) || array.length === 0) return []
+  if (array.length === 1) return array
+  var left = []
+  var right = []
+  var middle = []
+
+  var key = array[0]
+
+  for (var i = 0; i < array.length; i++) {
+    if (array[i] < key) {
+      left.push(array[i])
+    } else if (array[i] > key) {
+      right.push(array[i])
+    } else {
+      middle.push(array[i])
+    }
+  }
+
+  return quick(left).concat(middle, quick(right))
+}
+
+// 经典实现, 不占用额外内存
 
 ```
