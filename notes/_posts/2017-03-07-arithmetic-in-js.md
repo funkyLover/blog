@@ -122,3 +122,31 @@ function quick (array) {
 // 经典实现, 不占用额外内存
 
 ```
+
+##### 有两个从小到大排列的数组A和B,判断B数组是不是A数组的子集(可能有重复元素)
+
+> 额外条件: 不使用额外内存
+
+```js
+
+function isSubset (A, B) {
+  if (A.length === 0 && B.length === 0) return true
+  if (A.length < B.length) return false
+
+  for (var i = 0, j = 0; i < A.length && j < B.length;) {
+    if (A[i] === B[j]) {
+      i++
+      j++
+    } else if (A[i] < B[j]) {
+      i++
+    } else {
+      return false
+    }
+  }
+
+  if (j < B.length) return false
+
+  return true
+}
+
+```
