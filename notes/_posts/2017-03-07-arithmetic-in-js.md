@@ -97,7 +97,6 @@ function reverse (array, begin, end) {
 
 // 简单实现, 需要额外内存
 function quick (array) {
-
   if (!array || !Array.isArray(array) || array.length === 0) return []
   if (array.length === 1) return array
   var left = []
@@ -120,6 +119,37 @@ function quick (array) {
 }
 
 // 经典实现, 不占用额外内存
+
+function quick2 (array, left, right) {
+  if (!array || !Array.isArray(array) || array.length === 0) return []
+
+  left = left || 0
+  right = right || 0
+  if (left >= right) return array
+  
+  var key = array[left]
+  var idx = left
+  var temp
+  for (var i = left + 1; i <= right; i++) {
+    if (array[i] <= key) {
+      idx++
+      temp = array[i]
+      array[i] = array[idx]
+      array[idx] = temp
+    }
+  }
+
+  if (idx !== left) {
+    temp = array[left]
+    array[left] = array[idx]
+    array[idx] = temp
+  }
+  
+  quick2(array, left, idx - 1)
+  quick2(array, idx + 1, right)
+
+  return array
+}
 
 ```
 
