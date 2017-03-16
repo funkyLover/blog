@@ -3,13 +3,13 @@ layout: post
 title: "Fibers, Event Loop和Meteor"
 description: "译文,关于Meteor以及Fibers,来自https://meteorhacks.com/fibers-eventloop-and-meteor/"
 date: 2017-03-16
-tags: [js]
+tags: [nodejs, meteor]
 comments: true
 share: true
 ---
 
 > 写在前面: 刚开始使用Meteor,在官方文档看到`In Meteor, your server code runs in a single thread per request`这句话.一开始因为出于对nodejs粗浅的理解(单线程)并没有很理解,所以找了一些资料,这篇文章解释清晰到位,虽然已经是旧文(2013年),不过还是打算翻译一下以供学习,如果错漏希望大家不吝指教.  
-> 原文出自 https://meteorhacks.com/fibers-eventloop-and-meteor/
+> 原文出自 [https://meteorhacks.com/fibers-eventloop-and-meteor/](https://meteorhacks.com/fibers-eventloop-and-meteor/)
 
 Meteor用Fibers来实现许多重要的特性.事实上,Meteor的流行很可能是得益于使用了Fibers,虽然在深度了解Meteor之前可能不会意识到这件事.
 
