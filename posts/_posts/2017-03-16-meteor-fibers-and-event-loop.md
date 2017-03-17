@@ -108,7 +108,7 @@ Meteor.methods({
 
 我们不能像上面使用回调.没有办法在回调中把用户资料返回出去,因为Meteor的Method不会等待回调再执行.现在我们需要学习怎么使用Fibers来处理这种情况?还是说有更好的选择?
 
-Meteor已经考虑到这种情况并且给我们提供了简单的API来处理.这个还没出现在文档中`(译者注: 这篇是老文了,现在文档已经能查到相应的说明)`,这里介绍下该如何使用.
+Meteor已经考虑到这种情况并且给我们提供了简单的API来处理.这个还没出现在文档中`(译者注: 这篇是老文了,现在文档已经能查到相应的说明,详见[http://docs.meteor.com/api/core.html#Meteor-wrapAsync](http://docs.meteor.com/api/core.html#Meteor-wrapAsync))`,这里介绍下该如何使用.
 
 > 作者注: meteor-npm同时也有一系列的async-utilities搭配npm模块工作.
 
