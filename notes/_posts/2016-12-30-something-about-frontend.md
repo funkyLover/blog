@@ -7,6 +7,18 @@ comments: true
 share: true
 ---
 
+##### [17-03-21]提取html字符串模板中的内容
+
+解法来自这个[精彩回答](http://stackoverflow.com/questions/822452/strip-html-from-text-javascript#answer-822486)
+
+```js
+function strip(html) {
+   var tmp = document.createElement("DIV");
+   tmp.innerHTML = html;
+   return tmp.textContent || tmp.innerText || "";
+}
+```
+
 ##### [16-11-04]去除inline-block元素直间的空隙
 
 当一系列元素使用`display: inline-block`并排布局时,元素之间会有空隙,详情可以看[这篇文章](https://css-tricks.com/fighting-the-space-between-inline-block-elements/)  
