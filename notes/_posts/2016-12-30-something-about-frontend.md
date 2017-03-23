@@ -7,6 +7,26 @@ comments: true
 share: true
 ---
 
+##### [17-03-23]如何删除子元素的text-decoration效果
+
+解法来自[cannot-undo-text-decoration-for-child-elements](http://stackoverflow.com/questions/5434819/cannot-undo-text-decoration-for-child-elements)
+
+```html
+<p>
+  i get underline!<span>don't want underline here!</span>
+</p>
+
+<style>
+p {
+  text-decoration: underline;
+}
+span {
+  text-decoration: none;
+  display: inline-block
+}
+</style>
+```
+
 ##### [17-03-21]提取html字符串模板中的内容
 
 解法来自这个[精彩回答](http://stackoverflow.com/questions/822452/strip-html-from-text-javascript#answer-822486)
