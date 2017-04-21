@@ -2,7 +2,7 @@
 layout: post
 title: "使用webpack和babel搭建react开发环境"
 description: "译文,原文来自https://scotch.io/tutorials/setup-a-react-environment-using-webpack-and-babel"
-date: 2016-01-05
+date: 2016-04-19
 tags: [front-end]
 comments: true
 share: true
