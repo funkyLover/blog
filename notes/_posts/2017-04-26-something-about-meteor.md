@@ -18,3 +18,18 @@ $ sudo sysctl -w kern.maxfiles=65536
 $ sudo sysctl -w kern.maxfilesperproc=65536
 $ ulimit -n 65536
 ```
+
+##### 运行meteor项目时node-sass报错
+
+```shell
+ERROR in Missing binding 
+...
+...
+Found bindings for the following environments:...
+...
+This usually happens because your environment has changed since running `npm install`.
+Run `npm rebuild node-sass` to build the binding for your current environment.
+...
+```
+
+其实这个错误描述得很清楚,大意就是说,安装依赖时使用的node版本和你运行项目时使用的node版本不一致(这是因为node-sass会根据不同的node版本或系统构建出不同的结果),解决方法就是安装依赖时不能使用`npm install`而要用`meteor npm install`(meteor使用node版本可能与本机node版本不一致).
