@@ -65,7 +65,7 @@ module.exports = {
 
 ## process.env.NODE_ENV
 
-就算项目中并没有用到`process.env.NODE_ENV`,可在webpack的plugin上加上了这个define很大可能会减少最后打包出来的文件的体积,这是因为有很多库在开发中就用使用`process.env.NODE_ENV`来判断当前是开发环境还是生产环境.就[react](https://github.com/facebook/react/blob/4b2eac3de7e1dbf5c2dd742fd9989974a83972cb/packages/react-dom/index.js#L3),[react-hot-loader](https://github.com/gaearon/react-hot-loader/blob/9146001a9e8f076ad36669daa3c2bcdfb1631905/src/AppContainer.js#L5)等.
+就算项目中并没有用到`process.env.NODE_ENV`,可在webpack的plugin上加上了这个define很大可能会减少最后打包出来的文件的体积,这是因为有很多库在开发中就用使用`process.env.NODE_ENV`来判断当前是开发环境还是生产环境.像[react](https://github.com/facebook/react/blob/4b2eac3de7e1dbf5c2dd742fd9989974a83972cb/packages/react-dom/index.js#L3),[react-hot-loader](https://github.com/gaearon/react-hot-loader/blob/9146001a9e8f076ad36669daa3c2bcdfb1631905/src/AppContainer.js#L5)等.
 
 ```js
 // dev webpack plugin
