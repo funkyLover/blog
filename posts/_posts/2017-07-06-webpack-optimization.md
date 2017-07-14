@@ -81,3 +81,49 @@ new webpack.DefinePlugin({
   }
 })
 ```
+
+## sass-loader的额外配置
+
+一般而言可能我们会有一个`variables.scss`或者`mixin.scss`文件,里面可能放着大部分的sass变量或者混合器,在开发中如果要用到对应文件中的定义的时候,就需要把文件import进去,在项目可能就会有很多条`@import 'xxx/variables.scss';`这样的语句.可以用以下方法解决.
+
+```js
+// webpack config
+// ...
+// 1. 通过sass-loader配置
+// sass-loader支持node-sass所有的配置项,如果我们想scss的变量文件全局可用的话,
+// 可以用以下配置
+{ 
+  test: /\.scss$/, 
+  use: [
+    'style-loader',
+    'css-loader',
+    {
+      loader: 'sass-loader',
+      options: {
+        includePaths: ['./src/styles'],
+        data: '@import "variables.scss";@import "mixin.scss";'
+      }
+    }
+  ]
+}
+// 2. 通过sass-resources-loader
+// 顾名思义,这个loader目的就是为了给sass文件配置resources.
+// 配置详见 https://github.com/shakacode/sass-resources-loader
+{ 
+  test: /\.scss$/, 
+  use: [
+    'style-loader',
+    'css-loader',
+    'sass-loader',
+    {
+      loader: 'sass-resources-loader',
+      options: {
+        // 单个文件
+        resources: './path/to/resources.scss',
+        // 多个文件
+        resources: ['./path/to/vars.scss', './path/to/mixins.scss']
+      }
+    }
+  ]
+}
+```
