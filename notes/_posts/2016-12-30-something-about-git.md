@@ -38,6 +38,13 @@ git rebase upstream/master
 git push -f origin master
 ```
 
+##### [16-7-10]以某一分支为基础创建新分支
+
+```shell
+git checkout -b branch_base_on_b1 b1
+```
+
+
 ##### [16-5-28]避免merge commit
 
 每次本地分支与远程分支发生冲突时,如果简单通过`git pull` -> `git push`的步骤来提交改动,不管两个版本有没有冲突,都会产生一个merge commit,一般来说,当两个版本直接没有冲突时,使用`git pull -rebase`就可以避免merge commit
