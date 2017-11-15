@@ -2,7 +2,7 @@
 layout: post
 title: "cordova项目适配iPhoneX"
 description: "iPhoneX适配踩坑浅谈"
-date: 2017-07-06
+date: 2017-11-15
 tags: [front-end, cordova, meteor]
 comments: true
 share: true
