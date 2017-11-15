@@ -12,8 +12,8 @@ Apple每次退出新尺寸的iphone都会掀起一番适配风波,这次没有�
 
 其实对于Native App来说,适配并不算困难(当然追求酷炫效果另算),官方文档有详细的说明,而对于Web App来说,主要还是依靠打开webview的Native App来适配,而这篇文章主要讨论的是Cordova App要如何适配iPhoneX.
 
-> ps: 本文用到的项目模板来自[centrual/cordova-template-framework7-vue-webpack](https://github.com/centrual/cordova-template-framework7-vue-webpack)
->    所有设配做出的改动都放到了我fork的[funkyLover/cordova-template-framework7-vue-webpack](https://github.com/funkyLover/cordova-template-framework7-vue-webpack)上
+> ps: 本文用到的项目模板来自[centrual/cordova-template-framework7-vue-webpack](https://github.com/centrual/cordova-template-framework7-vue-webpack)  
+> 所有设配做出的改动都放到了我fork的[funkyLover/cordova-template-framework7-vue-webpack](https://github.com/funkyLover/cordova-template-framework7-vue-webpack)上
 
 先上一开始没有适配的效果(下面截图均来自模拟器)
 
