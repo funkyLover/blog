@@ -29,7 +29,7 @@ Apple每次退出新尺寸的iphone都会掀起一番适配风波,这次没有�
 
 首先确认使用的cordova插件有是否包含针对iPhone X的release,例如`cordova-plugin-splashscreen`, `cordova-plugin-statusbar`等,而我是用的项目模板的插件版本刚好没有出什么问题,所以我也没有深究具体需要更新到哪些版本.
 
-而如果使用的是Meteor,则需要把Meteor来打包生成Cordova应用的话,则需要更新Meteor到1.6,而之后运行Meteor也会提醒需要更新哪些插件.
+而如果使用的是Meteor来打包生成Cordova应用的话,则需要更新Meteor到1.6,而之后运行Meteor也会提醒需要更新哪些插件.
 
 ## 更新启动图
 
