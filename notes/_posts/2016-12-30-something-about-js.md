@@ -7,6 +7,13 @@ comments: true
 share: true
 ---
 
+##### [18-03-09]如何在reducer中获取另一个reducer的state值(redux)?
+
+1. 首先检查确认reducer边界正确,让职责分离,看是否需要重新规划store状态树结构.
+1. 通过根据需求自定义action和root reducer规则,例如使用[reduce-reducers](https://github.com/redux-utilities/reduce-reducers)和[redux-actions](https://github.com/redux-utilities/redux-actions)而非combineReducers,如果一定要使用combineReducers,可以采取`combineReducers({ D: combineReducers({A,B,C}), E })`的方式,不过这样就另store结构更加复杂了
+1. 比较简单无脑的做法是,把reducer需要的state注入到dispatch action的组件中,然后作为action的参数值传递到对应的reducer中.
+1. 使用类似redux-thunk的中间件,这样就可以在dispatch之前用`getState()`方法获取需要的state.
+
 ##### [16-06-13]使用http-proxy-middleware时cookie没有被正确设置
 
 详细讨论在[chimurai/http-proxy-middleware#78](https://github.com/chimurai/http-proxy-middleware/issues/78)
