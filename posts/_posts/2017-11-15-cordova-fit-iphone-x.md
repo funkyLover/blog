@@ -8,7 +8,7 @@ comments: true
 share: true
 ---
 
-Apple每次退出新尺寸的iphone都会掀起一番适配风波,这次没有下巴但有刘海的iPhoneX更是如此,网传横屏下的适配动画更是令不少人汗颜.
+Apple每次推出新尺寸的iphone都会掀起一番适配风波,这次没有下巴但有刘海的iPhoneX更是如此,网传横屏下的适配动画更是令不少人汗颜.
 
 其实对于Native App来说,适配并不算困难(当然追求酷炫效果另算),官方文档有详细的说明,而对于Web App来说,主要还是依靠打开webview的Native App来适配,而这篇文章主要讨论的是Cordova App要如何适配iPhoneX.
 
