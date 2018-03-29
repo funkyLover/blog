@@ -1,9 +1,10 @@
 ---
 layout: default
-title: Posts
+title: Notes
+permalink: /notes/
 pagination: 
   enabled: true
-  category: post
+  category: note
   permalink: /:num/
 ---
 
@@ -33,15 +34,10 @@ pagination:
           {% endfor %}
         </ul>
       </div>
-      {% if post.description %}
-      <div class="list-post-desc">
-        <p>{{ post.description }}</p>
-      </div>
-      {% else %}
+
       <div class="entry">
         {{ post.excerpt }}
       </div>
-      {% endif %}
 
       <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a>
     </article>

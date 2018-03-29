@@ -1,51 +1,32 @@
 ---
 layout: default
 ---
-<header>
-  <h1 class="header-small">
-    {% if page.categories contains "notes" %}
-      <a href="{{site.url}}{{site.baseurl}}/{{ page.categories }}">{{ site.name }}</a>
-    {% else %}
-      <a href="{{site.url}}{{site.baseurl}}">{{ site.name }}</a>
-    {% endif %}
-  </h1>
-</header>
-<div class="post">
-  <h1 class="post-title">{{ page.title }}</h1>
-  {% if page.categories contains "notes" %}
-  {% else %}
-    <span class="post-date">
-      <time>{{ page.date | date:"%Y-%m-%d" }}</time>
+
+<article class="post">
+  <h1>{{ page.title }}</h1>
+
+  <div clsss="meta">
+    <span class="date">
+      {{ page.date | date: "%Y-%m-%d" }}
     </span>
-  {% endif %}
-  <div class="post-tag">
-    <ul>
+
+    <ul class="tag">
       {% for tag in page.tags %}
       <li>
-        <a href="{{ site.url }}{{ site.baseurl }}/tags#{{ tag }}" class="tag">
-          <span class="term">{{ tag }}</span>
+        <a href="{{ site.url }}{{ site.baseurl }}/tags#{{ tag }}">
+          {{ tag }}
         </a>
       </li>
-      {% unless forloop.last %}{% endunless %}
       {% endfor %}
     </ul>
   </div>
 
-  {{ content }}
-
-
-  <!-- Share -->
-  <!--{% if page.share != false %}
-  <div class="post-share">
-    <hr>
-    {% include share.html %}
-    <hr>
+  <div class="entry">
+    {{ content }}
   </div>
-  {% endif %}-->
 
-  <!-- Disqus -->
-  {% if page.comments != false and site.disqus.id %}
+  {% if page.comments != false and site.disqus %}
   <section id="disqus_thread"></section>
   {% include disqus.html %}
   {% endif %}
-</div>
+</article>

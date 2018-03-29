@@ -1,21 +1,15 @@
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{% if page.title %}{{ page.title }}{% else %}{{ site.name }} in da house{% endif %}</title>
+  <title>{% if page.title %}{{ page.title }} – {% endif %}{{ site.name }} – {{ site.description }}</title>
 
-  {% if page.description %}
-  <meta name="description" content="{{ if page.description }}">
-  {% else %}
-  <meta name="description" content="(ahui)ahui的个人博客,尘世间一名迷途小码农的沉思">
-  {% endif %}
-  <!-- CSS -->
-  <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/main.css" type="text/css">
+  {% include meta.html %}
+  {% include fonts.html %}
 
-  <!-- ico -->
-  <link rel="icon" type="image/x-icon" href="{{ site.baseurl }}/assets/images/favicon.ico">
+  <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
 
-  <link rel="alternate" type="application/rss+xml" title="RSS Feed for {{ site.name }}" href="{{ site.baseurl }}/feed.xml" />
-  {% seo %}
+  <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/style.css" />
+  <link rel="alternate" type="application/rss+xml" title="{{ site.name }} - {{ site.description }}" href="{{ site.baseurl }}/feed.xml" />
 
-  {% include google-analytics.html %}
+  <!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
 </head>

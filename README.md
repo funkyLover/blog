@@ -1,4 +1,4 @@
 
 # Ahui personal blog
 
-base on [kiko-plus jekyll theme](https://github.com/AWEEKJ/Kiko-plus)
+base on [kiko-now jekyll theme](https://github.com/aweekj/kiko-now)

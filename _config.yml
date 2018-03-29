@@ -1,76 +1,117 @@
-# # # # # # # # # # # # #
-#   K i k o - p l u s   #
-# # # # # # # # # # # # #
+#
+# This file contains configuration flags to customize your site
+#
 
-# Basic
-name:               "ahui"
+# Name of your site (displayed in the header)
+name: ahui in da house!
 
+# Short bio or description (displayed in the header)
+description: 尘世间一名迷途小码农
 
+#
+# Flags below are optional
+#
 
-author:
-  name:             ahui
+# URL of your avatar or profile pic (you could use your GitHub profile pic)
+avatar: https://raw.githubusercontent.com/barryclark/jekyll-now/master/images/jekyll-logo.png
 
-# Disqus
-disqus:
-  id:               "ahui-lin-1"
+# Tabs in header. There are 'Blog', 'About', 'Archive', 'Tags'
+# and URL Link(e.g. 'Theme' tab below) tabs. If you don't need one, just delete
+# it from the list(Delete '- name: ' and 'url: ', too!)
+navigation:
+  - name: Posts
+    url: /
+  - name: Notes
+    url: /notes
+  - name: Tags
+    url: /tags
+  - name: Github
+    url: https://github.com/funkylover
 
-google-analytics: 
-  id:               "UA-116571697-1"
+# Includes an icon in the footer for each username you enter
+footer-links:
+  behance: # https://www.behance.net/<username>
+  dribbble:
+  email:
+  facebook:
+  flickr:
+  github: # funkyLover
+  googleplus: # anything in your profile username that comes after plus.google.com/
+  instagram:
+  linkedin:
+  pinterest:
+  rss: # just type anything here for a working RSS icon
+  stackoverflow: # your stackoverflow profile, e.g. "users/50476/bart-kiers"
+  tumblr: # https://<username>.tumblr.com
+  twitter: # jekyllrb
+  youtube: # channel/<your_long_string> or user/<user-name>
 
-# URL
-#url:                "https://AWEEKJ.github.io" # the base hostname & protocol for your site
-url:                "http://blog.ahui.me" # use this url when develop
-baseurl:            "" # the subpath of your site, e.g. /blog
+# Text under the icons in footer
+footer-text: © 2016-2018 ahui. All rights reserved.
 
+# Enter your Disqus shortname (not your username) to enable commenting on posts
+# You can find your shortname on the Settings page of your Disqus account
+disqus: ahui-lin-1
 
-# http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
-timezone:           Asia/Shanghai
-permalink:          /:categories/:year-:month-:day/:title/
+# Enter your Google Analytics web tracking code (e.g. UA-2110908-2) to activate tracking
+google_analytics: UA-116571697-1
 
-# Pagination
-# paginate:           10
-# paginate_path:      /page:num/
+# Your website URL (e.g. http://barryclark.github.io or http://www.barryclark.co)
+# Used for Sitemap.xml and your RSS feed
+url: http://blog.ahui.me
 
-# Markdown
-markdown:           kramdown
+# If you're hosting your site at a Project repository on GitHub pages
+# (http://yourusername.github.io/repository-name)
+# and NOT your User repository (http://yourusername.github.io)
+# then add in the baseurl here, like this: "/repository-name"
+baseurl:
+
+#
+# !! You don't need to change any of the configuration flags below !!
+#
+
+# The release of Jekyll Now that you're using
+version: v1.2.0
+
+# Jekyll 3 now only supports Kramdown for Markdown
 kramdown:
-  imput:            GFM
+  # Use GitHub flavored markdown, including triple backtick fenced code blocks
+  input: GFM
+  # Jekyll 3 and GitHub Pages now only support rouge for syntax highlighting
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    # Use existing pygments syntax highlighting css
+    css_class: 'highlight'
 
-# Navigation
-nav:
-  - name:           "posts"
-    url:            "/"
-  - name:           "notes"
-    url:            "/notes"
-  - name:           "tags"
-    url:            "/tags"
-  - name:           "Github"
-    url:            "https://github.com/funkylover"
-
-
-# Sass
+# Set the Sass partials directory, as we're using @imports
 sass:
-  sass_dir:         _sass
-  style:            :compressed
+  style: :expanded # You might prefer to minify using :compressed
 
-# Scopes
-defaults:
-  -
-    scope:
-      path:         ""
-      type:         "pages"
-    values:
-      layout:       "page"
-  -
-    scope:
-      path:         ""
-      type:         "posts"
-    values:
-      layout:       "post"
+# Use the following plug-ins
+plugins:
+  - jekyll-paginate-v2
+  - jekyll-sitemap # Create a sitemap using the official Jekyll sitemap gem
+  - jekyll-feed # Create an Atom feed using the official Jekyll feed gem
 
-# jekyll-seo-tag, see: http://www.rubydoc.info/gems/jekyll-seo-tag/1.2.0
-gems:
-  - jekyll-seo-tag
-  # - jekyll-paginate
+# Exclude these files from your production _site
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - LICENSE
+  - README.md
+  - CNAME
 
-exclude:            [vendor]
+  # permalink: /:year/:month/:title.html
+# Pagination
+pagination:
+  # permalink: '/page/:num/'
+  per_page: 5
+  # permalink: /:title/
+  # paginate_path: /page:num/
+  enabled: true
+  # per_page: 2
+  # permalink: '/page/:num/'
+  # title: ' - page :num'
+  # limit: 0
+  sort_field: 'date'
+  sort_reverse: true

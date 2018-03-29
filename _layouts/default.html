@@ -1,11 +1,21 @@
 <!DOCTYPE html>
-<html lang="cmn-Hans-CN">
-{% include head.html %}
-<body>
-  <div class="content-container">
-    {{ content }}
+<html>
+  {% include head.html %}
+  <body>
+    {% include nav.html %}
 
-    {% include footer.html %}
-  </div>
-</body>
+    <div id="main" role="main" class="container">
+      {{ content }}
+    </div>
+
+    <div class="wrapper-footer">
+      <div class="container">
+        <footer class="footer">
+          {% include footer.html %}
+        </footer>
+      </div>
+    </div>
+
+    {% include analytics.html %}
+  </body>
 </html>
