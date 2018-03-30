@@ -54,7 +54,7 @@ footer-text: © 2016-2018 ahui. All rights reserved.
 disqus: ahui-lin-1
 
 # Enter your Google Analytics web tracking code (e.g. UA-2110908-2) to activate tracking
-google_analytics: UA-116571697-1
+google-analytics: UA-116571697-1
 
 # Your website URL (e.g. http://barryclark.github.io or http://www.barryclark.co)
 # Used for Sitemap.xml and your RSS feed
