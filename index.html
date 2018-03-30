@@ -7,12 +7,12 @@ pagination:
   permalink: /:num/
 ---
 
-{% if paginator.posts.size == 0 %}
+{% if site.categories.post.size == 0 %}
   <h2>No note found</h2>
 {% endif %}
 
 <div class="posts">
-  {% for post in paginator.posts %}
+  {% for post in site.categories.post %}
     <article class="post">
       <h1>
         <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
@@ -47,7 +47,7 @@ pagination:
     </article>
   {% endfor %}
 </div>
-
+{%comment%}
 <div class="pagination">
   {% if paginator.previous_page %}
     <span class="prev">
@@ -64,4 +64,4 @@ pagination:
     </span>
   {% endif %}
 </div>
-
+{%endcomment%}
