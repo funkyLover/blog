@@ -8,12 +8,12 @@ pagination:
   permalink: /:num/
 ---
 
-{% if site.categories.note.size == 0 %}
+{% if site.categories.notes.size == 0 %}
   <h2>No note found</h2>
 {% endif %}
 
 <div class="posts">
-  {% for post in site.categories.note %}
+  {% for post in site.categories.notes %}
     <article class="post">
       <h1>
         <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
