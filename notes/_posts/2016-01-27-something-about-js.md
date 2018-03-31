@@ -1,13 +1,19 @@
 ---
 layout: post
-title: "nodejs & 无关前端业务js"
-date: 2016-12-30
-tags: [javascript]
+title: "2016-01-27"
+date: 2016-01-27
+tags: [nodejs, redux, npm]
 comments: true
 share: true
 ---
 
-##### [18-03-09]如何在reducer中获取另一个reducer的state值(redux)?
+> [18-03-09]如何在reducer中获取另一个reducer的state值(redux) <br>
+> [16-06-13]使用http-proxy-middleware时cookie没有被正确设置 <br>
+> [16-02-24]最方便的求数组和,数组最小值,最大值 <br>
+> [16-01-27]npm install的进度条会影响速度 <br>
+> [16-01-18]去除字符串中的空格 <br>
+
+##### [18-03-09]如何在reducer中获取另一个reducer的state值(redux)
 
 1. 首先检查确认reducer边界正确,让职责分离,看是否需要重新规划store状态树结构.
 1. 通过根据需求自定义action和root reducer规则,例如使用[reduce-reducers](https://github.com/redux-utilities/reduce-reducers)和[redux-actions](https://github.com/redux-utilities/redux-actions)而非combineReducers,如果一定要使用combineReducers,可以采取`combineReducers({ D: combineReducers({A,B,C}), E })`的方式,不过这样就另store结构更加复杂了

@@ -1,11 +1,17 @@
 ---
 layout: post
-title: "html & css & 前端业务js"
+title: "2016-12-30"
 date: 2016-12-30
-tags: [front-end]
+tags: [html, js, css]
 comments: true
 share: true
 ---
+
+> [17-03-23]如何删除子元素的text-decoration效果 <br>
+> [17-03-21]提取html字符串模板中的内容 <br>
+> [16-11-04]去除inline-block元素直间的空隙 <br>
+> [16-09-09]选择文件后判断文件的类型 <br>
+> [16-01-28]移动端下,点击出现暗色遮罩,长按出现标签栏,流畅滚动等 <br>
 
 ##### [17-03-23]如何删除子元素的text-decoration效果
 

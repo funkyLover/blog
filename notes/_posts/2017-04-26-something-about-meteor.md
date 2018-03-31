@@ -1,13 +1,16 @@
 ---
 layout: post
-title: "Meteor相关"
+title: "2017-04-26"
 date: 2017-04-26
 tags: [Meteor]
 comments: true
 share: true
 ---
 
-##### macos下运行多个meteor app时报错`Error: ENFILE: file table overflow`
+> 17-04-26]macos下运行多个meteor app时报错`Error: ENFILE: file table overflow` <br>
+> 17-04-26]运行meteor项目时node-sass报错 <br>
+
+##### [17-04-26]macos下运行多个meteor app时报错`Error: ENFILE: file table overflow`
 
 详情参考这个issue,解决如下,根源是macos对打开的文件数量有限制,解除这个限制就好了.
 
@@ -19,7 +22,7 @@ $ sudo sysctl -w kern.maxfilesperproc=65536
 $ ulimit -n 65536
 ```
 
-##### 运行meteor项目时node-sass报错
+##### [17-04-26]运行meteor项目时node-sass报错
 
 ```shell
 ERROR in Missing binding 

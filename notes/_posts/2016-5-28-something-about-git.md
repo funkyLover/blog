@@ -1,11 +1,16 @@
 ---
 layout: post
-title: "git相关"
-date: 2016-12-30
+title: "2016-5-28"
+date: 2016-5-28
 tags: [git]
 comments: true
 share: true
 ---
+
+> [16-10-17]如何删除子元素的text-decoration效果 <br>
+> [16-7-12]提取html字符串模板中的内容 <br>
+> [16-7-10]去除inline-block元素直间的空隙 <br>
+> [16-5-28]选择文件后判断文件的类型 <br>
 
 ##### [16-10-17]ignore已经被git track的文件,并删除远程分支上对应的文件
 

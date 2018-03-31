@@ -1,15 +1,17 @@
 ---
 layout: post
-title: "IDE或代码编辑器"
-date: 2017-03-01
+title: "2017-03-24"
+date: 2017-03-24
 tags: [IDE & Editor]
 comments: true
 share: true
 ---
 
-## VS Code
+> [17-03-24]让vscode emmet支持 JSX
 
-> make emmet work with JSX
+##### [17-03-24]让vscode emmet支持 JSX
+
+更改配置
 
 ```json
 "emmet.syntaxProfiles":  {

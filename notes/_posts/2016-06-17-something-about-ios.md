@@ -1,11 +1,15 @@
 ---
 layout: post
-title: "ios开发相关"
-date: 2016-12-30
+title: "2016-06-17"
+date: 2016-06-17
 tags: [ios]
 comments: true
 share: true
 ---
+
+> [16-09-28]清除pod lib <br>
+> [16-8-09]用SDWebImage,在缓存图片之前对图片进行 <br>
+> [16-06-17]最简单的收起键盘 <br>
 
 ##### [16-09-28]清除pod lib
 
@@ -29,7 +33,6 @@ SDWebImageManager.sharedManager.delegate = self;
 ```
 
 然后实现SDWebImageManagerDelegate里的[imageManager:transformDownloadedImage:withURL:](http://hackemist.com/SDWebImage/doc/Protocols/SDWebImageManagerDelegate.html#//api/name/imageManager:transformDownloadedImage:withURL:)
-
 
 ##### [16-06-17]最简单的收起键盘
 

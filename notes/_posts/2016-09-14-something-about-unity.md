@@ -1,11 +1,14 @@
 ---
 layout: post
-title: "unity开发相关"
-date: 2016-12-30
-tags: [unity]
+title: "2016-09-14"
+date: 2016-09-14
+tags: [unity, ios]
 comments: true
 share: true
 ---
+
+> [16-10-11]unity整合到ios之后,unity的启动问题 <br>
+> [16-09-14]unity整合到ios app的问题(unity版本5.4.0f3) <br>
 
 ##### [16-10-11]unity整合到ios之后,unity的启动问题
 
