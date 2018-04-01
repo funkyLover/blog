@@ -21,8 +21,8 @@ avatar: https://raw.githubusercontent.com/funkyLover/blog/gh-pages/assets/images
 navigation:
   - name: Posts
     url: /
-  - name: Weekly
-    url: /weekly
+  - name: Notes
+    url: /notes
   - name: Tags
     url: /tags
   - name: Github
