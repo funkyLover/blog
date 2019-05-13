@@ -114,6 +114,10 @@ vscode 本身就内置了 nodejs 的 debug 支持, 除此之外还有有非常�
 
 很多时候生成的构建配置如果不符合我们的预期, 而又没办法一眼看出问题所在时, 我们就可以对生成配置的过程进行调试.
 
+根据[vue-cli文档#审查项目的-webpack-配置](https://cli.vuejs.org/zh/guide/webpack.html#%E5%AE%A1%E6%9F%A5%E9%A1%B9%E7%9B%AE%E7%9A%84-webpack-%E9%85%8D%E7%BD%AE), 我们可以运行`vue-cli-service inspect`来来审查我们的webpack配置.
+
+而`vue-cli-service`是开发依赖中`@vue/cli-service`包提供的一个命令, 具体存放路径为`node_modules/.bin/vue-cli-service`. 这个时候我们可以这样进行配置
+
 ```json
 {
   "type": "node",
