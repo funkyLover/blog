@@ -114,7 +114,7 @@ vscode 本身就内置了 nodejs 的 debug 支持, 除此之外还有有非常�
 
 很多时候生成的构建配置如果不符合我们的预期, 而又没办法一眼看出问题所在时, 我们就可以对生成配置的过程进行调试.
 
-根据[vue-cli文档#审查项目的-webpack-配置](https://cli.vuejs.org/zh/guide/webpack.html#%E5%AE%A1%E6%9F%A5%E9%A1%B9%E7%9B%AE%E7%9A%84-webpack-%E9%85%8D%E7%BD%AE), 我们可以运行`vue-cli-service inspect`来来审查我们的webpack配置.
+根据[vue-cli 文档#审查项目的-webpack-配置](https://cli.vuejs.org/zh/guide/webpack.html#%E5%AE%A1%E6%9F%A5%E9%A1%B9%E7%9B%AE%E7%9A%84-webpack-%E9%85%8D%E7%BD%AE), 我们可以运行`vue-cli-service inspect`来来审查我们的 webpack 配置.
 
 而`vue-cli-service`是开发依赖中`@vue/cli-service`包提供的一个命令, 具体存放路径为`node_modules/.bin/vue-cli-service`. 这个时候我们可以这样进行配置
 
@@ -132,13 +132,13 @@ vscode 本身就内置了 nodejs 的 debug 支持, 除此之外还有有非常�
 }
 ```
 
-简单解释下上面的配置, 启动命令为`当前工作项目目录(${workspaceFolder})`下的node_modules/.bin/vue-cli-service.
+简单解释下上面的配置, 启动命令为`当前工作项目目录(${workspaceFolder})`下的 node_modules/.bin/vue-cli-service.
 
 启动参数(`args`)为`inspect`.
 
-env为配置node环境变量(process.env), 其中指定了VUE_CLI_SERVICE_CONFIG_PATH为`当前工作项目目录(${workspaceFolder})`下的build/vue.config.js.
+env 为配置 node 环境变量(process.env), 其中指定了 VUE_CLI_SERVICE_CONFIG_PATH 为`当前工作项目目录(${workspaceFolder})`下的 build/vue.config.js.
 
-cwd可指定在某一文件夹下执行启动命令.
+cwd 可指定在某一文件夹下执行启动命令.
 
 使用上面的配置运行时. 可观察调试控制台的输出.
 
