@@ -2,7 +2,7 @@
 layout: post
 title: "前后端分离之更好的mock你的后端api"
 description: "注意! 广告警告! 广告警告! 广告警告!"
-date: 2019-05-16
+date: 2019-05-17
 tags: [mock, node, front-end]
 comments: true
 share: true
@@ -208,7 +208,7 @@ module.exports = `
 
 ```js
 // ctx: https://koajs.com/#context
-module.exports = function(ctx)  {
+module.exports = function(ctx) {
   // 逻辑处理
 
   return {
@@ -216,11 +216,11 @@ module.exports = function(ctx)  {
     header: {}, // 如有需要可以配置, 同http.js#header
     delay: 0.1, // 如有需要可以配置, 同http.js#delay
     status: 200 // 如有需要可以配置, 同http.js#status
-  }
-}
+  };
+};
 
 // 如果当中有异步逻辑, 请返回promise, 或直接使用async方法
-module.exports = async function(ctx)  {
+module.exports = async function(ctx) {
   // 异步逻辑处理
   await asyncFn();
 
@@ -229,13 +229,13 @@ module.exports = async function(ctx)  {
     header: {}, // 如有需要可以配置, 同http.js#header
     delay: 0.1, // 如有需要可以配置, 同http.js#delay
     status: 200 // 如有需要可以配置, 同http.js#status
-  }
-}
+  };
+};
 ```
 
 ## 代理线上数据
 
-在开发过程可能出现这样的场景, 一期项目已经开发完了, 现在进行二期迭代的开发工作, 这个时候由于之前的接口后台已经都实现, 二期开发中只想对新增的api进行mock
+在开发过程可能出现这样的场景, 一期项目已经开发完了, 现在进行二期迭代的开发工作, 这个时候由于之前的接口后台已经都实现, 二期开发中只想对新增的 api 进行 mock
 
 这个时候可以修改一下代理的配置
 
@@ -249,7 +249,7 @@ target.mock.com/api/new2 127.0.0.1:8080
 target.mock.com ww.xx.yy.zz
 ```
 
-或者可以直接使用mock server提供的简单的代理功能, 只需要在mock目录个目录下新建`proxy.js`文件
+或者可以直接使用 mock server 提供的简单的代理功能, 只需要在 mock 目录个目录下新建`proxy.js`文件
 
 ```js
 |- proj
@@ -262,17 +262,17 @@ module.exports = {
 }
 ```
 
-这样配置之后, 可以把所有的`target.mock.com`的请求都直接转发到mock server
+这样配置之后, 可以把所有的`target.mock.com`的请求都直接转发到 mock server
 
-当对应请求的url并没有勾选任何一个返回状态, 或根本没有配置对应的url的话, mock server都会帮助我们把请求转发到目标ip
+当对应请求的 url 并没有勾选任何一个返回状态, 或根本没有配置对应的 url 的话, mock server 都会帮助我们把请求转发到目标 ip
 
-假设没有配置`proxy.js`的话, 对于没有命中的url请求, 会根据host直接请求线上的资源或借口
+假设没有配置`proxy.js`的话, 对于没有命中的 url 请求, 会根据 host 直接请求线上的资源或借口
 
 ## 模板接口调试 & 微信登录支持
 
 在非前后端分离的架构中, 很常会出现这样的需求, 应用的入口即是后端接口, 后端会进行鉴权, 拼接模板内容和数据, 然后直接返回页面给到前端进行展示.
 
-这样的场景mock server可以很简单通过`data.js`中导出方法的方式来处理
+这样的场景 mock server 可以很简单通过`data.js`中导出方法的方式来处理
 
 ```js
 const fs = require('fs');
@@ -302,6 +302,105 @@ module.exports = async ctx => {
 
 比较好的方式是, 本地修改模板然后把模板改动上传到开发服务器, 然后直接请求开发服务器调试
 
-但是如果改动比较多
+但是改动比较多, 需要频繁调试的话, 或许使用 mock server 也是一个不错的选择. 更进一步, 如果是微信 h5 且后端的鉴权接入了微信登录呢?
+
+我们来分析下如何使用 mock server 满足这样的调试述求, h5 微信登录基本的流程如下
+
+1. 请求线上/开发测试服务器接口
+1. 接口返回 http 状态码 302 并带上 Location 头, 跳转到微信 url
+1. 请求微信 url 会返回 301 再回跳我们的业务域名
+1. 回跳我们的业务域名时, 即再次请求服务器接口, 获取微信登录 code 进行业务登录
+1. 返回登录态及 html 页面
+
+上面的流程中, 其实需要介入只有最后一步而已, 就是获取到登录态并返回需要调试的 html 模板内容即可
+
+而前面的步骤, 完全可以通过代理完成
+
+```js
+// 微信登录/data.js
+const httpProxy = require("http-proxy");
+const fs = require("fs");
+const path = require("path");
+
+proxy = httpProxy.createServer({
+  secure: false
+});
+
+async function req({ req, res }) {
+  proxy.web(req, res, {
+    target: {
+      protocol: "https:",
+      host: "ww.xx.yy.zz", // 目标服务器
+      port: 443,
+      pfx: fs.readFileSync(path.resolve(process.cwd(), "cert/cert.p12")), // 如果服务器是https需要生成证书
+      passphrase: "password"
+    },
+    selfHandleResponse: true
+  });
+
+  return new Promise((resolve, reject) => {
+    proxy.once("proxyRes", function(proxyRes, req, res) {
+      let body = [];
+      let size = 0;
+      function onData(chunk) {
+        body.push(chunk);
+        size += chunk.length;
+      }
+
+      proxyRes.on("data", onData).once("end", () => {
+        proxyRes.off("data", onData);
+        body = Buffer.concat(body, size);
+        resolve({
+          header: proxyRes.headers,
+          data: body,
+          status: proxyRes.statusCode
+        });
+      });
+    });
+  });
+}
+
+module.exports = async function(ctx) {
+  // 登录态
+  const res = await req(ctx);
+  const header = res.header;
+  res.header = Object.keys(header).reduce((c, k) => {
+    let nk = k
+      .split("-")
+      .map(v => v.charAt(0).toUpperCase() + v.slice(1))
+      .join("-");
+    c[nk] = header[k];
+    return c;
+  }, {});
+
+  if (res.header["Set-Cookie"]) {
+    // 如果有Set-Cookie header, 则要处理返回本地模板
+    // 这里处理模板的语法
+    // 1. 处理类似include的拼接模板的语法
+    // 2. 处理类似<%= =>插入变量/数据的语法
+    // 3. 等等等等....
+    res.data = template;
+
+    // 这里需要注意, 目标服务器可能会返回gzip过后的数据
+    // 如果不对Content-Encoding和Content-Length进行处理的话
+    // 会导致响应中Content-Length和实际内荣长度不一致而出错
+    res.header["Content-Encoding"] = "identity";
+    delete res.header["Content-Length"];
+  }
+  return res;
+};
+```
+
+这样我们就可以对具体的接口模板进行调试了
+
+## 写在最后
+
+~~重复~~造轮子不易, 且造且珍惜
+
+如果大家有mock api的需求的话, 不妨也试用一下[mock-server][1]
+
+如果觉得[mock-server][1]还不错, 或者解决了mock的一些痛点, 不妨赏个star
+
+最后, 用得不爽或发现bug, 恳请[提issue](https://github.com/funkyLover/mock-server/issues)!
 
 [1]: https://github.com/funkyLover/mock-server
