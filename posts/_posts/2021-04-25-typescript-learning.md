@@ -88,3 +88,25 @@ share: true
   // or
   type PromiseOneThenArg2 = ThenArg<ReturnType<typeof promiseOne>>; // => number
   ```
+
+- 获取数组元素的类型
+
+  from https://stackoverflow.com/questions/41253310/typescript-retrieve-element-type-information-from-array-type
+
+  ```ts
+  type ArrayElement<
+    ArrayType extends readonly unknown[]
+  > = ArrayType extends readonly (infer ElementType)[] ? ElementType : never;
+  ```
+
+## 奇淫技巧
+
+- 方法返回一个特定的类型, 而这个类型又在方法逻辑中使用, 但又不想单独定义
+
+  ```ts
+  function func(): Array<{ a: string; b: number }> {
+    const res: ReturnType<typeof func> = [];
+    // ...
+    return res;
+  }
+  ```
