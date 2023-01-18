@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "git骚操作"
-description: "git骚操作笔记"
+title: "git疑难杂症解决日志"
+description: "git疑难杂症解决日志"
 date: 2021-05-10
 tags: [git]
 comments: true
@@ -43,3 +43,13 @@ git find-merge <commit sha> master
 ```bash
 git reflog show --date=iso <barnch name>
 ```
+
+## error: cannot lock ref
+
+git pull时遇到 `error: cannot lock ref` 错误, 大概率是分支命名(如大小写)问题冲突导致
+
+```bash
+git update-ref -d refs/remotes/origin/xxxx
+```
+
+目前还没完全理解 update-ref, 可翻阅[相关文档](https://www.bookstack.cn/read/git-doc-zh/docs-81.md)
