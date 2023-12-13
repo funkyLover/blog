@@ -53,3 +53,9 @@ git update-ref -d refs/remotes/origin/xxxx
 ```
 
 目前还没完全理解 update-ref, 可翻阅[相关文档](https://www.bookstack.cn/read/git-doc-zh/docs-81.md)
+
+## 定位某一个文件在所有分支下的最新的提交
+
+```bash
+git log -n 1 --all -- <file_path>
+```
